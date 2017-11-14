@@ -2,7 +2,7 @@
 #define __LINUX_MSM_CAM_SENSOR_H
 
 #include <linux/v4l2-mediabus.h>
-#include "./msm_camsensor_sdk.h"
+#include <media/msm_camsensor_sdk_lenovo.h>
 
 #include <linux/types.h>
 #include <linux/i2c.h>
