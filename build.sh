@@ -16,7 +16,7 @@ DEFCONFIG="karate_defconfig"
 KERNEL="Image.gz-dtb"
 
 # Hyper Kernel Details
-BASE_VER="hyper-n"
+BASE_VER="hyper-n-upstream"
 VER="-$(date +"%Y-%m-%d"-%H%M)"
 K_VER="$BASE_VER$VER-karate"
 
