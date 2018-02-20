@@ -9222,22 +9222,18 @@ static int smbchg_probe(struct spmi_device *spmi)
 		rc = PTR_ERR(chip->aicl_deglitch_short_votable);
 		goto votables_cleanup;
 	}
-
+/**	wake_lock_init(&chip->wakelock, WAKE_LOCK_SUSPEND,
+						"smbchg_task_wakelock");
+	wake_lock_init(&chip->batt_hot_wake_lock, WAKE_LOCK_SUSPEND,
+						"batt_wakelock");**/
 	chip->hvdcp_enable_votable = create_votable(
 			"HVDCP_ENABLE",
 			VOTE_MIN,
-			smbchg_hvdcp_enable_cb);
-	if (IS_ERR(chip->hvdcp_enable_votable))
-		return PTR_ERR(chip->hvdcp_enable_votable);
-	wake_lock_init(&chip->wakelock, WAKE_LOCK_SUSPEND,
-						"smbchg_task_wakelock");
-	wake_lock_init(&chip->batt_hot_wake_lock, WAKE_LOCK_SUSPEND,
-						"batt_wakelock");
-/**			smbchg_hvdcp_enable_cb, chip);
+			smbchg_hvdcp_enable_cb, chip);
 	if (IS_ERR(chip->hvdcp_enable_votable)) {
 		rc = PTR_ERR(chip->hvdcp_enable_votable);
 		goto votables_cleanup;
-	} **/
+	}
 
 	INIT_WORK(&chip->usb_set_online_work, smbchg_usb_update_online_work);
 	INIT_DELAYED_WORK(&chip->parallel_en_work,
@@ -9446,8 +9442,8 @@ static int smbchg_remove(struct spmi_device *spmi)
 		power_supply_unregister(&chip->dc_psy);
 
 	power_supply_unregister(&chip->batt_psy);
-	wake_lock_destroy(&chip->wakelock);
-	wake_lock_destroy(&chip->batt_hot_wake_lock);
+/**	wake_lock_destroy(&chip->wakelock);
+	wake_lock_destroy(&chip->batt_hot_wake_lock);**/
 	destroy_votable(chip->aicl_deglitch_short_votable);
 	destroy_votable(chip->hw_aicl_rerun_enable_indirect_votable);
 	destroy_votable(chip->hw_aicl_rerun_disable_votable);
