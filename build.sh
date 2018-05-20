@@ -16,7 +16,7 @@ DEFCONFIG="karate_defconfig"
 KERNEL="Image.gz-dtb"
 
 # Hyper Kernel Details
-BASE_VER="hyper-n"
+BASE_VER="hyper-o"
 VER="-$(date +"%Y-%m-%d"-%H%M)"
 K_VER="$BASE_VER$VER-karate"
 
@@ -29,9 +29,9 @@ export TZ="Asia/Calcutta"
 
 # Paths
 KERNEL_DIR=`pwd`
-RESOURCE_DIR="/home/tejachaitu96/v3.18.84"
+RESOURCE_DIR="/home/hyper/teja/o-upstream"
 ANYKERNEL_DIR="$RESOURCE_DIR/hyper"
-TOOLCHAIN_DIR="/home/tejachaitu96/4.9"
+TOOLCHAIN_DIR="/home/hyper/teja/aarch64-4.9"
 REPACK_DIR="$ANYKERNEL_DIR"
 PATCH_DIR="$ANYKERNEL_DIR/patch"
 MODULES_DIR="$ANYKERNEL_DIR/modules"
