@@ -29,9 +29,9 @@ export TZ="Asia/Calcutta"
 
 # Paths
 KERNEL_DIR=`pwd`
-RESOURCE_DIR="/home/hyper/teja/o-upstream"
+RESOURCE_DIR="/home/hyper/teja/test"
 ANYKERNEL_DIR="$RESOURCE_DIR/hyper"
-TOOLCHAIN_DIR="/home/hyper/teja/aarch64-4.9"
+TOOLCHAIN_DIR="/home/hyper/teja/tc/gcc-musl-raphielscape"
 REPACK_DIR="$ANYKERNEL_DIR"
 PATCH_DIR="$ANYKERNEL_DIR/patch"
 MODULES_DIR="$ANYKERNEL_DIR/modules"
@@ -68,9 +68,9 @@ function make_zip {
 
 DATE_START=$(date +"%s")
 
-		export CROSS_COMPILE=$TOOLCHAIN_DIR/bin/aarch64-linux-android-
+		export CROSS_COMPILE=$TOOLCHAIN_DIR/bin/aarch64-raphielscape-linux-musl-
 		export LD_LIBRARY_PATH=$TOOLCHAIN_DIR/lib/
-                STRIP=$TOOLCHAIN_DIR/bin/aarch64-linux-android-strip
+                STRIP=$TOOLCHAIN_DIR/bin/aarch64-raphielscape-linux-musl-strip
 		rm -rf $MODULES_DIR/*
 		rm -rf $ZIP_MOVE/*
 		cd $ANYKERNEL_DIR
